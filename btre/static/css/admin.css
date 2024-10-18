@@ -1,0 +1,30 @@
+#header {
+  height: 50px;
+  background: #10284e;
+  color: #fff;
+}
+
+#branding {
+  color: #fff;
+}
+
+div.breadcrumbs {
+  background: #3a6e99; 
+  color: #ffffff; 
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  color: #ffffff; 
+}
+.module h2, .module caption, .inline-group h2 {
+  background-color: #007C7C;  
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background: #34495e;
+  color: #ffffff;
+}
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover {
+  background: #007C7C; /* Change to a lighter shade on hover */
+}
+
