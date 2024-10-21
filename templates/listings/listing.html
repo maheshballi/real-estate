@@ -1,6 +1,5 @@
-{% extends 'base.html' %}
-{% load humanize %}
-{% block content %}
+{% extends 'base.html' %} {% load humanize %} {% block title %} |
+{{listing.title}} {%endblock %} {% block content %}
 
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
@@ -8,7 +7,9 @@
       <div class="col-md-12">
         <h1 class="display-4">{{listing.title}}</h1>
         <p class="lead">
-          <i class="fas fa-map-marker"></i> {{listing.city}} {{listing.state}}, {{listing.zipcode}}</p>
+          <i class="fas fa-map-marker"></i> {{listing.city}} {{listing.state}},
+          {{listing.zipcode}}
+        </p>
       </div>
     </div>
   </div>
@@ -34,58 +35,82 @@
 <!-- Listing -->
 <section id="listing" class="py-4">
   <div class="container">
-    <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
+    <a href="{% url 'listings' %}" class="btn btn-light mb-4"
+      >Back To Listings</a
+    >
     <div class="row">
       <div class="col-md-9">
         <!-- Home Main Image -->
-        <img src="{{ listing.photo_main.url }}" alt="" class="img-main img-fluid mb-3">
+        <img
+          src="{{ listing.photo_main.url }}"
+          alt=""
+          class="img-main img-fluid mb-3"
+        />
         <!-- Thumbnails -->
         <div class="row mb-5 thumbs">
-         {% if listing.photo1_main %} 
+          {% if listing.photo1_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo1_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo1_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo1_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
-          {% endif %}
-          {% if listing.photo2_main %}
+          {% endif %} {% if listing.photo2_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo2_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo2_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo2_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
-          {% endif %}
-
-          {% if listing.photo3_main %}
+          {% endif %} {% if listing.photo3_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo3_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo3_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo3_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
-          {% endif %}
-          {% if listing.photo4_main %}
+          {% endif %} {% if listing.photo4_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo4_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo4_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo4_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
-          {% endif %}
-          {% if listing.photo5_main %}
+          {% endif %} {% if listing.photo5_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo5_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo5_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo5_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
-          {% endif %}
-          {% if listing.photo6_main %}
+          {% endif %} {% if listing.photo6_main %}
           <div class="col-md-2">
             <a href="{{ listing.photo6_main.url }}" data-lightbox="home-images">
-              <img src="{{ listing.photo6_main.url }}" alt="" class="img-fluid">
+              <img
+                src="{{ listing.photo6_main.url }}"
+                alt=""
+                class="img-fluid"
+              />
             </a>
           </div>
           {% endif %}
         </div>
-        
+
         <!-- Fields -->
         <div class="row mb-5 fields">
           <div class="col-md-6">
@@ -104,8 +129,7 @@
               </li>
               <li class="list-group-item text-secondary">
                 <i class="fas fa-car"></i> Garage:
-                <span class="float-right">{{listing.garage}}
-                </span>
+                <span class="float-right">{{listing.garage}} </span>
               </li>
             </ul>
           </div>
@@ -117,8 +141,7 @@
               </li>
               <li class="list-group-item text-secondary">
                 <i class="fas fa-square"></i> Lot Size:
-                <span class="float-right">{{listing.lot_size}}
-                </span>
+                <span class="float-right">{{listing.lot_size}} </span>
               </li>
               <li class="list-group-item text-secondary">
                 <i class="fas fa-calendar"></i> Listing Date:
@@ -126,8 +149,7 @@
               </li>
               <li class="list-group-item text-secondary">
                 <i class="fas fa-bed"></i> Realtor:
-                <span class="float-right">{{listing.realtor}}
-                </span>
+                <span class="float-right">{{listing.realtor}} </span>
               </li>
             </ul>
           </div>
@@ -135,20 +157,28 @@
 
         <!-- Description -->
         <div class="row mb-5">
-          <div class="col-md-12">
-            {{listing.description}}
-          </div>
+          <div class="col-md-12">{{listing.description}}</div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card mb-3">
-          <img class="card-img-top" src="{{listing.realtor.photo.url}}" alt="">
+          <img
+            class="card-img-top"
+            src="{{listing.realtor.photo.url}}"
+            alt=""
+          />
           <div class="card-body">
             <h5 class="card-title">Property Realtor</h5>
             <h6 class="text-secondary">{{listing.realtor}}</h6>
           </div>
         </div>
-        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+        <button
+          class="btn-primary btn-block btn-lg"
+          data-toggle="modal"
+          data-target="#inquiryModal"
+        >
+          Make An Inquiry
+        </button>
       </div>
     </div>
   </div>
@@ -168,26 +198,36 @@
         <form>
           <div class="form-group">
             <label for="property_name" class="col-form-label">Property:</label>
-            <input type="text" name="listing" class="form-control" value="45 Drivewood Cirlce" disabled>
+            <input
+              type="text"
+              name="listing"
+              class="form-control"
+              value="45 Drivewood Cirlce"
+              disabled
+            />
           </div>
           <div class="form-group">
             <label for="name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" required>
+            <input type="text" name="name" class="form-control" required />
           </div>
           <div class="form-group">
             <label for="email" class="col-form-label">Email:</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" required />
           </div>
           <div class="form-group">
             <label for="phone" class="col-form-label">Phone:</label>
-            <input type="text" name="phone" class="form-control">
+            <input type="text" name="phone" class="form-control" />
           </div>
           <div class="form-group">
             <label for="message" class="col-form-label">Message:</label>
             <textarea name="message" class="form-control"></textarea>
           </div>
-          <hr>
-          <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          <hr />
+          <input
+            type="submit"
+            value="Send"
+            class="btn btn-block btn-secondary"
+          />
         </form>
       </div>
     </div>
