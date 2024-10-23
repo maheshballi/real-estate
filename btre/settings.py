@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
+
     'django.contrib.humanize',
 ]
 
@@ -134,6 +135,7 @@ MEDIA_URL = '/media/'
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
   messages.ERROR : 'danger'
+
 }
 
 # Email Authentication
